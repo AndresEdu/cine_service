@@ -9,6 +9,8 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import com.cine.salaService.business.SalaService;
 import com.cine.salaService.dto.Ack;
 import com.cine.salaService.dto.Sala;
+import com.cine.salaService.dto.SalaCreator;
+import com.cine.salaService.dto.SalaReader;
 
 @Endpoint
 public class SalasEndpoint {
@@ -18,8 +20,8 @@ public class SalasEndpoint {
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "salaCreator")
 	@ResponsePayload
-	public Ack salaRegistration(@RequestPayload Sala request) {
-		Ack response = salaService.createSala(request);
+	public Ack salaRegistration(@RequestPayload SalaCreator request) {
+		Ack response = salaService.createSala(request.getSala());
 		
 		return response;
 		
@@ -27,8 +29,8 @@ public class SalasEndpoint {
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "salaReader")
 	@ResponsePayload
-	public Ack salaRead(@RequestPayload Sala request) {
-		Ack response = salaService.readSala(request);
+	public Ack salaRead(@RequestPayload SalaReader request) {
+		Ack response = salaService.readSala(request.getSala());
 		
 		return response;
 		
