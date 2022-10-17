@@ -85,7 +85,12 @@ public class SalaService {
 	        while ((sala = csvReader.readNext()) != null) {
 	            if(Integer.parseInt(sala[0]) == id)
 	            {
-	            	return new Sala(Integer.parseInt(sala[0]),Integer.parseInt(sala[1]),Integer.parseInt(sala[2]),sala[3]);
+	            	Sala s = new Sala();
+	            	s.setIdSala(Integer.parseInt(sala[0]));
+	            	s.setCantFilas(Integer.parseInt(sala[1]));
+	            	s.setCantColumnas(Integer.parseInt(sala[2]));
+	            	s.setEstado(sala[3]);
+	            	return s;
 	            }
 	        }
 	    }

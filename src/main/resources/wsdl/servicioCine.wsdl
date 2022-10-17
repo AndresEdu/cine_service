@@ -6,8 +6,12 @@
 			<xs:include schemaLocation="../xsd/commons.xsd"/>
 		</xs:schema>		
 	</wsdl:types>
-	<wsdl:message name="SalaRequest">
-		<wsdl:part name="parameter" element="tns:Sala"/>
+	<wsdl:message name="SalaReadRequest">
+		<wsdl:part name="parameter" element="tns:salaReader"/>
+	</wsdl:message>
+	
+	<wsdl:message name="SalaCreateRequest">
+		<wsdl:part name="parameter" element="tns:salaCreator"/>
 	</wsdl:message>
 	
 	<wsdl:message name="FuncionRequest">
@@ -25,12 +29,12 @@
 	<wsdl:portType name="SalaPortType">
 
 		<wsdl:operation name="createSalaOperation">
-			<wsdl:input message="tns:SalaRequest"/>
+			<wsdl:input message="tns:SalaCreateRequest"/>
 			<wsdl:output message="tns:AckResponse"/>
 		</wsdl:operation>
 		
 		<wsdl:operation name="readSalaOperation">
-			<wsdl:input message="tns:SalaRequest"/>
+			<wsdl:input message="tns:SalaReadRequest"/>
 			<wsdl:output message="tns:AckResponse"/>
 		</wsdl:operation>
 		

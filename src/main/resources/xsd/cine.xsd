@@ -1,117 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://com.cine" targetNamespace="http://com.cine" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://com.cine" targetNamespace="http://com.cine"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
 	<xs:element name="Asiento">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="estado">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="disponible"/>
-							<xs:enumeration value="ocupado"/>
-							<xs:enumeration value="reservado"/>
+							<xs:enumeration value="disponible" />
+							<xs:enumeration value="ocupado" />
+							<xs:enumeration value="reservado" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
 				<xs:element name="idAsiento">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:pattern value="^([A-F]{1}[0-9][0-9]?)$"/>
+							<xs:pattern value="^([A-F]{1}[0-9][0-9]?)$" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="idSala">
 					<xs:simpleType>
 						<xs:restriction base="xs:int">
-							<xs:minInclusive value="1"/>
-							<xs:maxInclusive value="3"/>
-						</xs:restriction>					
+							<xs:minInclusive value="1" />
+							<xs:maxInclusive value="3" />
+						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:element name="Sala">
+	<xs:element name="salaReader">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="idSala">
-					<xs:simpleType>
-						<xs:restriction base="xs:int">
-							<xs:minInclusive value="1"/>
-							<xs:maxInclusive value="3"/>
-						</xs:restriction>					
-					</xs:simpleType>
-				</xs:element>
-			
-				<xs:element name="cantFilas">
-					<xs:simpleType>
-						<xs:restriction base="xs:int">
-							<xs:minExclusive value="0"/>
-							<xs:maxInclusive value="10"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				
-				<xs:element name="cantColumnas">
-					<xs:simpleType>
-						<xs:restriction base="xs:int">
-							<xs:minExclusive value="0"/>
-							<xs:maxInclusive value="10"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				
-				<xs:element name="estado">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Disponible"/>
-							<xs:enumeration value="Mantenimiento"/>
-							<xs:enumeration value="Reservada"/>
-						</xs:restriction>						
-					</xs:simpleType>
-				</xs:element>
-				
+				<xs:element name = "Sala" type = "tns:Sala"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	
+	<xs:element name="salaUpdater">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "Sala" type = "tns:Sala"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="salaCreator">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "Sala" type = "tns:Sala"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="salaDeleter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "Sala" type = "tns:Sala"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Sala">
+		<xs:sequence>
+			<xs:element name="idSala">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1" />
+						<xs:maxInclusive value="3" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="cantFilas">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0" />
+						<xs:maxInclusive value="10" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="cantColumnas">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0" />
+						<xs:maxInclusive value="10" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="estado">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Disponible" />
+						<xs:enumeration value="Mantenimiento" />
+						<xs:enumeration value="Reservada" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:element name="Pelicula">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="idPelicula">
 					<xs:simpleType>
-						<xs:restriction base="xs:int"></xs:restriction>					
+						<xs:restriction base="xs:int"></xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="nombre">
 					<xs:simpleType>
 						<xs:restriction base="xs:string"></xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="duracion">
 					<xs:simpleType>
 						<xs:restriction base="xs:int">
-							<xs:minInclusive value="60"/>
-							<xs:maxInclusive value="200"/>
+							<xs:minInclusive value="60" />
+							<xs:maxInclusive value="200" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="clasificacion">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="A"/>
-							<xs:enumeration value="B"/>
-							<xs:enumeration value="C"/>
-							<xs:enumeration value="D"/>
+							<xs:enumeration value="A" />
+							<xs:enumeration value="B" />
+							<xs:enumeration value="C" />
+							<xs:enumeration value="D" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="descripcion">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -121,7 +153,7 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="Funcion">
 		<xs:complexType>
 			<xs:sequence>
@@ -131,56 +163,57 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="fecha">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:pattern value="^([0-9]{2}[/][0-9]{2}[/][0-9]{4})"/>
+							<xs:pattern value="^([0-9]{2}[/][0-9]{2}[/][0-9]{4})" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="hora">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:pattern value="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$"/>
+							<xs:pattern
+								value="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="idPelicula">
 					<xs:simpleType>
 						<xs:restriction base="xs:int"></xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="idSala">
 					<xs:simpleType>
 						<xs:restriction base="xs:int">
-						<xs:minInclusive value="1"/>
-						<xs:maxInclusive value="3"/>
+							<xs:minInclusive value="1" />
+							<xs:maxInclusive value="3" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="costoBoleto">
 					<xs:simpleType>
 						<xs:restriction base="xs:float">
-							<xs:minExclusive value="0"/>
-						</xs:restriction>						
+							<xs:minExclusive value="0" />
+						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				
+
 				<xs:element name="estado">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="disponible"/>
-							<xs:enumeration value="llena"/>
+							<xs:enumeration value="disponible" />
+							<xs:enumeration value="llena" />
 						</xs:restriction>
 					</xs:simpleType>
-				</xs:element>				
+				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
-	</xs:element>	
-	
+	</xs:element>
+
 </xs:schema>
