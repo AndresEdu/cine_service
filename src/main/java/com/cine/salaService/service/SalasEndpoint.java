@@ -12,12 +12,11 @@ import com.cine.salaService.dto.Sala;
 
 @Endpoint
 public class SalasEndpoint {
-	
 	private static final String NAMESPACE_URI = "http://com.cine";
 	
 	@Autowired SalaService salaService;
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "sala")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "Sala")
 	@ResponsePayload
 	public Ack salaRegistration(@RequestPayload Sala request) {
 		Ack response = salaService.createSala(request);
