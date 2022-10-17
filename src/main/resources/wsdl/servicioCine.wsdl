@@ -2,8 +2,8 @@
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://com.cine" targetNamespace="http://com.cine">
 	<wsdl:types>
 		<xs:schema targetNamespace="http://com.cine" elementFormDefault="qualified">
-			<xs:include schemaLocation="cine.xsd"/>
-			<xs:include schemaLocation="commons.xsd"/>
+			<xs:include schemaLocation="../xsd/cine.xsd"/>
+			<xs:include schemaLocation="../xsd/commons.xsd"/>
 		</xs:schema>		
 	</wsdl:types>
 	<wsdl:message name="SalaRequest">
