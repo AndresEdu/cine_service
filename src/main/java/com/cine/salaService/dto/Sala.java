@@ -82,6 +82,18 @@ public class Sala {
     @XmlElement(required = true)
     protected String estado;
 
+    public Sala(int id, int cantFilas, int cantColumnas, String estado)
+    {
+    	this.idSala = id;
+    	this.cantColumnas = cantColumnas;
+    	this.cantFilas = cantFilas;
+    	this.estado = estado;
+    }
+    
+    public Sala() {
+    	
+    }
+    
     /**
      * Obtiene el valor de la propiedad idSala.
      * 
