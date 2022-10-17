@@ -1,5 +1,6 @@
 package com.cine.salaService.business;
 
+import java.io.Console;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,8 +21,8 @@ public class SalaService {
 		Ack ack = new Ack();
 
 		if (buscarSala(sala.getIdSala()) == null) 
-		{
-
+		{			
+			System.out.println("HI");
 			try {
 				FileWriter writer = new FileWriter(salasCsv, true);
 				CSVWriter csvWriter = new CSVWriter(writer);
@@ -29,10 +30,12 @@ public class SalaService {
 				String[] linea = { Integer.toString(sala.getIdSala()), Integer.toString(sala.getCantFilas()),
 						Integer.toString(sala.getCantColumnas()), sala.getEstado() };
 
+				System.out.println(sala.getIdSala());
 				csvWriter.writeNext(linea);
 				ack.setDescription("Se ha guardado la sala");
 				ack.setCode(0);
 
+				System.out.println("CERRAMOS");
 				csvWriter.close();
 			} catch (IOException e) {
 				ack.setDescription("Error de almacenamiento");
@@ -51,14 +54,16 @@ public class SalaService {
 	public Ack readSala(Sala sala)
 	{
 		Ack ack = new Ack();
+		Sala s = buscarSala(sala.getIdSala());
 		
-		if(buscarSala(sala.getIdSala()) != null)
+		if(s != null)
 		{
 			ack.setCode(0);
-			ack.setDescription("id: "+ sala.getIdSala()+"\n"+
-					"Estado: "+ sala.getEstado()+"\n"+
-					"Cantidad de filas: "+ sala.getCantFilas()+"\n"+
-					"Cantidad de columnas: "+ sala.getCantColumnas()+"\n");
+			
+			ack.setDescription("id: "+ s.getIdSala()+"\n"+					
+					"Cantidad de filas: "+ s.getCantFilas()+"\n"+
+					"Cantidad de columnas: "+ s.getCantColumnas()+"\n"+
+					"Estado: "+ s.getEstado()+"\n");
 		} 
 		else 
 		{
@@ -84,7 +89,7 @@ public class SalaService {
 	        // we are going to read data line by line
 	        while ((sala = csvReader.readNext()) != null) {
 	            if(Integer.parseInt(sala[0]) == id)
-	            {
+	            {	            
 	            	Sala s = new Sala();
 	            	s.setIdSala(Integer.parseInt(sala[0]));
 	            	s.setCantFilas(Integer.parseInt(sala[1]));
