@@ -16,8 +16,7 @@ public class SalasEndpoint {
 	
 	@Autowired SalaService salaService;
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "Sala")
-	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "salaCreator")
 	@ResponsePayload
 	public Ack salaRegistration(@RequestPayload Sala request) {
 		Ack response = salaService.createSala(request);
@@ -26,7 +25,7 @@ public class SalasEndpoint {
 		
 	}
 	
-
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "salaReader")
 	@ResponsePayload
 	public Ack salaRead(@RequestPayload Sala request) {
 		Ack response = salaService.readSala(request);

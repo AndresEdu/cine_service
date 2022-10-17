@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.10.17 a las 12:19:07 PM CDT 
+// Generado el: 2022.10.17 a las 03:48:10 PM CDT 
 //
 
 
@@ -45,11 +45,43 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SalaReader }
+     * 
+     */
+    public SalaReader createSalaReader() {
+        return new SalaReader();
+    }
+
+    /**
      * Create an instance of {@link Sala }
      * 
      */
     public Sala createSala() {
         return new Sala();
+    }
+
+    /**
+     * Create an instance of {@link SalaUpdater }
+     * 
+     */
+    public SalaUpdater createSalaUpdater() {
+        return new SalaUpdater();
+    }
+
+    /**
+     * Create an instance of {@link SalaCreator }
+     * 
+     */
+    public SalaCreator createSalaCreator() {
+        return new SalaCreator();
+    }
+
+    /**
+     * Create an instance of {@link SalaDeleter }
+     * 
+     */
+    public SalaDeleter createSalaDeleter() {
+        return new SalaDeleter();
     }
 
     /**

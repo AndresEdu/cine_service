@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Sala" type="{http://com.cine}Sala"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,54 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "code",
-    "description"
+    "sala"
 })
-@XmlRootElement(name = "ack")
-public class Ack {
+@XmlRootElement(name = "salaReader")
+public class SalaReader {
 
-    protected int code;
-    @XmlElement(required = true)
-    protected String description;
-
-    /**
-     * Obtiene el valor de la propiedad code.
-     * 
-     */
-    public int getCode() {
-        return code;
-    }
+    @XmlElement(name = "Sala", required = true)
+    protected Sala sala;
 
     /**
-     * Define el valor de la propiedad code.
-     * 
-     */
-    public void setCode(int value) {
-        this.code = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad description.
+     * Obtiene el valor de la propiedad sala.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Sala }
      *     
      */
-    public String getDescription() {
-        return description;
+    public Sala getSala() {
+        return sala;
     }
 
     /**
-     * Define el valor de la propiedad description.
+     * Define el valor de la propiedad sala.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Sala }
      *     
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setSala(Sala value) {
+        this.sala = value;
     }
 
 }
