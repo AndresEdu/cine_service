@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://com.cine" targetNamespace="http://com.cine" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ack">
+		<xs:annotation>
+			<xs:documentation>Describe la estructuras comunes para la gestión de un cine.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="xs:int"/>
+				<xs:element name="description" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
