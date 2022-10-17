@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.10.14 a las 10:54:11 AM CDT 
+// Generado el: 2022.10.17 a las 12:19:07 PM CDT 
 //
 
 
@@ -33,14 +33,15 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/restriction&gt;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="fila"&gt;
+ *         &lt;element name="cantFilas"&gt;
  *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *               &lt;pattern value="^[A-F]{1}$"/&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&gt;
+ *               &lt;minExclusive value="0"/&gt;
+ *               &lt;maxInclusive value="10"/&gt;
  *             &lt;/restriction&gt;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="columna"&gt;
+ *         &lt;element name="cantColumnas"&gt;
  *           &lt;simpleType&gt;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&gt;
  *               &lt;minExclusive value="0"/&gt;
@@ -68,17 +69,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idSala",
-    "fila",
-    "columna",
+    "cantFilas",
+    "cantColumnas",
     "estado"
 })
 @XmlRootElement(name = "Sala")
 public class Sala {
 
     protected int idSala;
-    @XmlElement(required = true)
-    protected String fila;
-    protected int columna;
+    protected int cantFilas;
+    protected int cantColumnas;
     @XmlElement(required = true)
     protected String estado;
 
@@ -99,43 +99,35 @@ public class Sala {
     }
 
     /**
-     * Obtiene el valor de la propiedad fila.
+     * Obtiene el valor de la propiedad cantFilas.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getFila() {
-        return fila;
+    public int getCantFilas() {
+        return cantFilas;
     }
 
     /**
-     * Define el valor de la propiedad fila.
+     * Define el valor de la propiedad cantFilas.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setFila(String value) {
-        this.fila = value;
+    public void setCantFilas(int value) {
+        this.cantFilas = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad columna.
+     * Obtiene el valor de la propiedad cantColumnas.
      * 
      */
-    public int getColumna() {
-        return columna;
+    public int getCantColumnas() {
+        return cantColumnas;
     }
 
     /**
-     * Define el valor de la propiedad columna.
+     * Define el valor de la propiedad cantColumnas.
      * 
      */
-    public void setColumna(int value) {
-        this.columna = value;
+    public void setCantColumnas(int value) {
+        this.cantColumnas = value;
     }
 
     /**

@@ -45,15 +45,16 @@
 					</xs:simpleType>
 				</xs:element>
 			
-				<xs:element name="fila">
+				<xs:element name="cantFilas">
 					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:pattern value="^[A-F]{1}$"/>
+						<xs:restriction base="xs:int">
+							<xs:minExclusive value="0"/>
+							<xs:maxInclusive value="10"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
 				
-				<xs:element name="columna">
+				<xs:element name="cantColumnas">
 					<xs:simpleType>
 						<xs:restriction base="xs:int">
 							<xs:minExclusive value="0"/>

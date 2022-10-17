@@ -21,8 +21,8 @@ public class SalaService {
 			
 			String[] linea = {
 					Integer.toString(sala.getIdSala()),
-					sala.getFila(),
-					Integer.toString(sala.getColumna()),
+					Integer.toString(sala.getCantFilas()),
+					Integer.toString(sala.getCantColumnas()),
 					sala.getEstado()
 			};
 			
