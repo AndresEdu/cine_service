@@ -12,10 +12,11 @@ import com.opencsv.CSVWriter;
 
 @Component
 public class SalaService {
+	
 	public Ack createSala(Sala sala) {
 		Ack ack = new Ack();
 		
-		try {
+		try {			
 			FileWriter writer = new FileWriter(".\\src\\main\\resources\\csv\\salas.csv", true);
 			CSVWriter csvWriter = new CSVWriter(writer);
 			
@@ -27,18 +28,15 @@ public class SalaService {
 			};
 			
 			csvWriter.writeNext(linea);
+			ack.setDescription("Se ha guardado la sala");
+			ack.setCode(0);
 			
 			csvWriter.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			ack.setDescription("Error de almacenamiento");
+			ack.setCode(-1);
 			e.printStackTrace();
-		}
-		
-		
-		
-		ack.setDescription("Se ha guardado la sala");
-		
-		ack.setCode(0);
+		}						
 		
 		return ack;
 	}
