@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.10.17 a las 03:48:10 PM CDT 
+// Generado el: 2022.10.17 a las 07:32:28 PM CDT 
 //
 
 
@@ -10,7 +10,6 @@ package com.cine.salaService.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Sala" type="{http://com.cine}Sala"/&gt;
+ *         &lt;element name="idSala" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "sala"
+    "idSala"
 })
 @XmlRootElement(name = "salaReader")
 public class SalaReader {
 
-    @XmlElement(name = "Sala", required = true)
-    protected Sala sala;
+    protected int idSala;
 
     /**
-     * Obtiene el valor de la propiedad sala.
+     * Obtiene el valor de la propiedad idSala.
      * 
-     * @return
-     *     possible object is
-     *     {@link Sala }
-     *     
      */
-    public Sala getSala() {
-        return sala;
+    public int getIdSala() {
+        return idSala;
     }
 
     /**
-     * Define el valor de la propiedad sala.
+     * Define el valor de la propiedad idSala.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Sala }
-     *     
      */
-    public void setSala(Sala value) {
-        this.sala = value;
+    public void setIdSala(int value) {
+        this.idSala = value;
     }
 
 }

@@ -1,6 +1,6 @@
 package com.cine.salaService.business;
 
-import java.io.Console;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -51,10 +51,10 @@ public class SalaService {
 		return ack;
 	}
 	
-	public Ack readSala(Sala sala)
+	public Ack readSala(int id)
 	{
 		Ack ack = new Ack();
-		Sala s = buscarSala(sala.getIdSala());
+		Sala s = buscarSala(id);
 		
 		if(s != null)
 		{
