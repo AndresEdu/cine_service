@@ -8,6 +8,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.cine.salaService.business.FuncionService;
 import com.cine.salaService.dto.Ack;
+import com.cine.salaService.dto.EstadoFuncion;
 import com.cine.salaService.dto.FuncionCreator;
 import com.cine.salaService.dto.FuncionReader;
 
@@ -30,6 +31,17 @@ public class FuncionEndpoint {
 	@ResponsePayload
 	public Ack funcionRead(@RequestPayload FuncionReader request) {
 		Ack response = funcionService.readFuncion(request.getIdFuncion());
+		
+		return response;
+		
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "estadoFuncion")
+	@ResponsePayload
+	public Ack funcionChangeState(@RequestPayload EstadoFuncion request) {
+		Ack response = funcionService.cambiarEstado(
+				request.getIdFuncion(), 
+				request.getEstado());
 		
 		return response;
 		

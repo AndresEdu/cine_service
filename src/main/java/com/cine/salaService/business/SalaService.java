@@ -22,20 +22,21 @@ public class SalaService {
 
 		if (buscarSala(sala.getIdSala()) == null) 
 		{			
-			System.out.println("HI");
 			try {
 				FileWriter writer = new FileWriter(salasCsv, true);
 				CSVWriter csvWriter = new CSVWriter(writer);
 
-				String[] linea = { Integer.toString(sala.getIdSala()), Integer.toString(sala.getCantFilas()),
-						Integer.toString(sala.getCantColumnas()), sala.getEstado() };
+				String[] linea = { 
+						Integer.toString(sala.getIdSala()), 
+						Integer.toString(sala.getCantFilas()),
+						Integer.toString(sala.getCantColumnas()),
+						sala.getEstado() 
+						};
 
-				System.out.println(sala.getIdSala());
 				csvWriter.writeNext(linea);
 				ack.setDescription("Se ha guardado la sala");
 				ack.setCode(0);
 
-				System.out.println("CERRAMOS");
 				csvWriter.close();
 			} catch (IOException e) {
 				ack.setDescription("Error de almacenamiento");
@@ -60,10 +61,10 @@ public class SalaService {
 		{
 			ack.setCode(0);
 			
-			ack.setDescription("id: "+ s.getIdSala()+"\n"+					
-					"Cantidad de filas: "+ s.getCantFilas()+"\n"+
-					"Cantidad de columnas: "+ s.getCantColumnas()+"\n"+
-					"Estado: "+ s.getEstado()+"\n");
+			ack.setDescription("id: " + s.getIdSala() + "\n" +					
+					"Cantidad de filas: " + s.getCantFilas() + "\n" +
+					"Cantidad de columnas: " + s.getCantColumnas() +"\n" +
+					"Estado: " + s.getEstado() + "\n");
 		} 
 		else 
 		{
