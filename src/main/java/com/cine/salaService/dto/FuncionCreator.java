@@ -10,6 +10,7 @@ package com.cine.salaService.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="idSala" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="Funcion" type="{http://com.cine}Funcion"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idSala"
+    "funcion"
 })
-@XmlRootElement(name = "salaReader")
-public class SalaReader {
+@XmlRootElement(name = "funcionCreator")
+public class FuncionCreator {
 
-    protected int idSala;
+    @XmlElement(name = "Funcion", required = true)
+    protected Funcion funcion;
 
     /**
-     * Obtiene el valor de la propiedad idSala.
+     * Obtiene el valor de la propiedad funcion.
      * 
+     * @return
+     *     possible object is
+     *     {@link Funcion }
+     *     
      */
-    public int getIdSala() {
-        return idSala;
+    public Funcion getFuncion() {
+        return funcion;
     }
 
     /**
-     * Define el valor de la propiedad idSala.
+     * Define el valor de la propiedad funcion.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Funcion }
+     *     
      */
-    public void setIdSala(int value) {
-        this.idSala = value;
+    public void setFuncion(Funcion value) {
+        this.funcion = value;
     }
 
 }

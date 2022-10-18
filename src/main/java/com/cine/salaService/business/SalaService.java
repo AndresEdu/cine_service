@@ -98,6 +98,8 @@ public class SalaService {
 	            	return s;
 	            }
 	        }
+	        
+	        csvReader.close();
 	    }
 	    catch (Exception e) {
 	        e.printStackTrace();
