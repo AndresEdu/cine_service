@@ -18,8 +18,8 @@
 		<wsdl:part name="parameter" element="tns:salaCreator"/>
 	</wsdl:message>
 	
-	<wsdl:message name="FuncionRequest">
-		<wsdl:part name="parameter" element="tns:Funcion"/>
+	<wsdl:message name="FuncionCreateRequest">
+		<wsdl:part name="parameter" element="tns:funcionCreator"/>
 	</wsdl:message>
 		
 	<wsdl:message name="EstadoFuncionRequest">
@@ -47,7 +47,7 @@
 	<wsdl:portType name="FuncionPortType">
 
 		<wsdl:operation name="createFuncionOperation">
-			<wsdl:input message="tns:FuncionRequest"/>
+			<wsdl:input message="tns:FuncionCreateRequest"/>
 			<wsdl:output message="tns:AckResponse"/>
 		</wsdl:operation>
 		

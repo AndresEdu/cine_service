@@ -10,6 +10,7 @@ import com.cine.salaService.business.FuncionService;
 import com.cine.salaService.business.SalaService;
 import com.cine.salaService.dto.Ack;
 import com.cine.salaService.dto.Funcion;
+import com.cine.salaService.dto.FuncionCreator;
 import com.cine.salaService.dto.FuncionReader;
 import com.cine.salaService.dto.SalaCreator;
 import com.cine.salaService.dto.SalaReader;
@@ -34,24 +35,6 @@ public class SalasEndpoint {
 	@ResponsePayload
 	public Ack salaRead(@RequestPayload SalaReader request) {
 		Ack response = salaService.readSala(request.getIdSala());
-		
-		return response;
-		
-	}
-	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "Funcion")
-	@ResponsePayload
-	public Ack salaRegistration(@RequestPayload Funcion request) {
-		Ack response = funcionService.createFuncion(request);
-		
-		return response;
-		
-	}
-	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "funcionReader")
-	@ResponsePayload
-	public Ack salaRead(@RequestPayload FuncionReader request) {
-		Ack response = funcionService.readFuncion(request.getIdFuncion());
 		
 		return response;
 		

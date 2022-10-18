@@ -34,19 +34,19 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="salaReader">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name = "idSala" type = "xs:int"/>
+				<xs:element name="idSala" type="xs:int" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-		
+
 	<xs:element name="salaCreator">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name = "Sala" type = "tns:Sala"/>
+				<xs:element name="Sala" type="tns:Sala" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -138,18 +138,26 @@
 		</xs:complexType>
 	</xs:element>
 	
+	<xs:element name="funcionCreator">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Funcion" type="tns:Funcion" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="funcionReader">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name = "idFuncion" type = "xs:int"/>
+				<xs:element name="idFuncion" type="xs:int" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="estadoFuncion">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name = "idFuncion" type = "xs:int"/>
+				<xs:element name="idFuncion" type="xs:int" />
 				<xs:element name="estado">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -162,66 +170,64 @@
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="Funcion">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="idFuncion">
-					<xs:simpleType>
-						<xs:restriction base="xs:int">
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+	<xs:complexType name="Funcion">
+		<xs:sequence>
+			<xs:element name="idFuncion">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="fecha">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:pattern value="^([0-9]{2}[/][0-9]{2}[/][0-9]{4})" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:element name="fecha">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="^([0-9]{2}[/][0-9]{2}[/][0-9]{4})" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="hora">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:pattern
-								value="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:element name="hora">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="idPelicula">
-					<xs:simpleType>
-						<xs:restriction base="xs:int"></xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:element name="idPelicula">
+				<xs:simpleType>
+					<xs:restriction base="xs:int"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="idSala">
-					<xs:simpleType>
-						<xs:restriction base="xs:int">
-							<xs:minInclusive value="1" />
-							<xs:maxInclusive value="3" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:element name="idSala">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1" />
+						<xs:maxInclusive value="3" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="costoBoleto">
-					<xs:simpleType>
-						<xs:restriction base="xs:float">
-							<xs:minExclusive value="0" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:element name="costoBoleto">
+				<xs:simpleType>
+					<xs:restriction base="xs:float">
+						<xs:minExclusive value="0" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 
-				<xs:element name="estado">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="disponible" />
-							<xs:enumeration value="llena" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+			<xs:element name="estado">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="disponible" />
+						<xs:enumeration value="llena" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 
 </xs:schema>
