@@ -10,6 +10,10 @@
 		<wsdl:part name="parameter" element="tns:salaReader"/>
 	</wsdl:message>
 	
+	<wsdl:message name="FuncionReadRequest">
+		<wsdl:part name="parameter" element="tns:funcionReader"/>
+	</wsdl:message>
+	
 	<wsdl:message name="SalaCreateRequest">
 		<wsdl:part name="parameter" element="tns:salaCreator"/>
 	</wsdl:message>
@@ -19,7 +23,7 @@
 	</wsdl:message>
 		
 	<wsdl:message name="EstadoFuncionRequest">
-		<wsdl:part name="parameter" type="xs:string"/>
+		<wsdl:part name="parameter" element="tns:estadoFuncion"/>
 	</wsdl:message>
 	
 	<wsdl:message name="AckResponse">
@@ -48,7 +52,7 @@
 		</wsdl:operation>
 		
 		<wsdl:operation name="readFuncionOperation">
-			<wsdl:input message="tns:FuncionRequest"/>
+			<wsdl:input message="tns:FuncionReadRequest"/>
 			<wsdl:output message="tns:AckResponse"/>
 		</wsdl:operation>
 		

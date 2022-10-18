@@ -38,28 +38,12 @@
 	<xs:element name="salaReader">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name = "Sala" type = "tns:Sala"/>
+				<xs:element name = "idSala" type = "xs:int"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
-	<xs:element name="salaUpdater">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name = "Sala" type = "tns:Sala"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
+		
 	<xs:element name="salaCreator">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name = "Sala" type = "tns:Sala"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
-	<xs:element name="salaDeleter">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name = "Sala" type = "tns:Sala"/>
@@ -147,6 +131,30 @@
 				<xs:element name="descripcion">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="funcionReader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "idFuncion" type = "xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="estadoFuncion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "idFuncion" type = "xs:int"/>
+				<xs:element name="estado">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="disponible" />
+							<xs:enumeration value="llena" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
