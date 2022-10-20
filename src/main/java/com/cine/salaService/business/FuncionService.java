@@ -3,6 +3,10 @@ package com.cine.salaService.business;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -35,11 +39,20 @@ public class FuncionService {
 						Float.toString(f.getCostoBoleto()), 
 						f.getEstado() 
 						};
-
-				csvWriter.writeNext(linea);
-				ack.setDescription("Se ha guardado la funcion");
-				ack.setCode(0);
-
+				
+				if(Integer.parseInt(linea[4]) <= 0 || Integer.parseInt(linea[4]) > 3 )
+				{
+					ack.setDescription("Error: la sala debe ser 1,2 o 3");
+					ack.setCode(-2);
+				}				
+				else 
+				{
+					csvWriter.writeNext(linea);
+					ack.setDescription("Se ha guardado la funcion");
+					ack.setCode(0);
+				}
+				
+				
 				csvWriter.close();
 			} catch (IOException e) {
 				ack.setDescription("Error de almacenamiento");
@@ -47,6 +60,7 @@ public class FuncionService {
 				e.printStackTrace();
 			}
 		} else {
+			
 			ack.setDescription("Error: Ya existe una funcion con ese id");
 			ack.setCode(-1);
 		}

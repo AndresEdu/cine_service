@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://com.cine" targetNamespace="http://com.cine">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://com.cine" elementFormDefault="qualified">
+			<xs:include schemaLocation="../xsd/cine.xsd"/>
+			<xs:include schemaLocation="../xsd/commons.xsd"/>
+		</xs:schema>		
+	</wsdl:types>
+	<wsdl:message name="SalaRequest">
+		<wsdl:part name="parameter" element="tns:Sala"/>
+	</wsdl:message>
+	
+	<wsdl:message name="FuncionRequest">
+		<wsdl:part name="parameter" element="tns:Funcion"/>
+	</wsdl:message>
+		
+	<wsdl:message name="EstadoFuncionRequest">
+		<wsdl:part name="parameter" type="xs:string"/>
+	</wsdl:message>
+	
+	<wsdl:message name="AckResponse">
+		<wsdl:part name="parameter" element="tns:ack"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="SalaPortType">
+
+		<wsdl:operation name="createSalaOperation">
+			<wsdl:input message="tns:SalaRequest"/>
+			<wsdl:output message="tns:AckResponse"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="readSalaOperation">
+			<wsdl:input message="tns:SalaRequest"/>
+			<wsdl:output message="tns:AckResponse"/>
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+	<wsdl:portType name="FuncionPortType">
+
+		<wsdl:operation name="createFuncionOperation">
+			<wsdl:input message="tns:FuncionRequest"/>
+			<wsdl:output message="tns:AckResponse"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="readFuncionOperation">
+			<wsdl:input message="tns:FuncionRequest"/>
+			<wsdl:output message="tns:AckResponse"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="changeStateFuncionOperation">
+			<wsdl:input message="tns:EstadoFuncionRequest"/>
+			<wsdl:output message="tns:AckResponse"/>
+		</wsdl:operation>
+		
+	</wsdl:portType>
+	
+	<wsdl:binding name="SalaBinding" type="tns:SalaPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="createSalaOperation">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="readSalaOperation">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+		
+	<wsdl:binding name="FuncionBinding" type="tns:FuncionPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="createFuncionOperation">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="readFuncionOperation">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="changeStateFuncionOperation">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+	
+	<wsdl:service name="CineService">
+
+		<wsdl:port name="SalaPort" binding="tns:SalaBinding">
+			<soap:address location="No target address"/>
+		</wsdl:port>
+		
+		<wsdl:port name="FuncionPort" binding="tns:FuncionBinding">
+			<soap:address location="No target address"/>
+		</wsdl:port>
+		
+	</wsdl:service>
+</wsdl:definitions>

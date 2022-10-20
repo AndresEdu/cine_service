@@ -32,10 +32,28 @@ public class SalaService {
 						Integer.toString(sala.getCantColumnas()),
 						sala.getEstado() 
 						};
-
-				csvWriter.writeNext(linea);
-				ack.setDescription("Se ha guardado la sala");
-				ack.setCode(0);
+				
+				if(Integer.parseInt(linea[0]) < 0 || Integer.parseInt(linea[0]) > 3 )
+				{
+					ack.setDescription("Error: la sala debe ser 1,2 o 3");
+					ack.setCode(-2);
+				}
+				else if(Integer.parseInt(linea[1]) < 0 || Integer.parseInt(linea[1]) > 10)
+				{
+					ack.setDescription("Error: las filas deben ser de 1 a 10");
+					ack.setCode(-3);
+				}
+				else if(Integer.parseInt(linea[2]) < 0 || Integer.parseInt(linea[2]) > 10)
+				{
+					ack.setDescription("Error: las columnas deben ser de 1 a 10");
+					ack.setCode(-3);
+				}
+				else 
+				{
+					csvWriter.writeNext(linea);
+					ack.setDescription("Se ha guardado la sala");
+					ack.setCode(0);
+				}
 
 				csvWriter.close();
 			} catch (IOException e) {
